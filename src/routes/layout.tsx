@@ -18,6 +18,28 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCElWwEJn3_rDU2ojcTJWXfUluTOMsyNO0",
+  authDomain: "kb-sudoku.firebaseapp.com",
+  projectId: "kb-sudoku",
+  storageBucket: "kb-sudoku.appspot.com",
+  messagingSenderId: "1001847768129",
+  appId: "1:1001847768129:web:b5b0528584a9714b9772c0",
+  measurementId: "G-WLKZPE8KWJ",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+getDatabase(app);
+
 export const useServerTimeLoader = routeLoader$(() => {
   return {
     date: new Date().toISOString(),
